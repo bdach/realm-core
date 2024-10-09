@@ -888,7 +888,7 @@ void File::prealloc(SizeType size)
         }
     };
 
-#if REALM_HAVE_POSIX_FALLOCATE
+#if REALM_HAVE_POSIX_FALLOCATE && !REALM_ANDROID
     // Mostly Linux only
     if (!prealloc_if_supported(0, new_size)) {
         manually_consume_space();
