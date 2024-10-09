@@ -284,9 +284,6 @@ if(CMAKE_USE_PTHREADS_INIT)
     check_symbol_exists(pthread_setname_np "pthread.h" REALM_HAVE_PTHREAD_SETNAME)
 endif()
 
-find_package(Backtrace)
-set(REALM_HAVE_BACKTRACE ${Backtrace_FOUND})
-
 if(REALM_ENABLE_SYNC)
     option(REALM_FORCE_OPENSSL "Always use OpenSSL for SSL needs, regardless of target platform." OFF)
     if(CMAKE_SYSTEM_NAME MATCHES "^Windows|Linux|Android")
