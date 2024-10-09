@@ -277,13 +277,6 @@ option(REALM_APP_SERVICES "Enable the default app services implementation." ON)
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
 
-# Threads library is pthread-compatible
-# Check for these explicitly because older versions of musl define only one or the other
-if(CMAKE_USE_PTHREADS_INIT)
-    check_symbol_exists(pthread_getname_np "pthread.h" REALM_HAVE_PTHREAD_GETNAME)
-    check_symbol_exists(pthread_setname_np "pthread.h" REALM_HAVE_PTHREAD_SETNAME)
-endif()
-
 find_package(Backtrace)
 set(REALM_HAVE_BACKTRACE ${Backtrace_FOUND})
 
